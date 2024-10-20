@@ -4,15 +4,33 @@ from dotenv import load_dotenv
 import os
 import openai
 
-
 app = Flask(__name__)
 CORS(app)  # Enable CORS globally
 
 # Get the OpenAI API key from Heroku environment variables
 openai.api_key = os.getenv('OPENAI_API_KEY')
-# openai.api_key = ""
 
-# print("OPENAI_API_KEY:", openai.api_key)
+# Moderation function to check for inappropriate input
+def moderate_input(user_input):
+    print("hey")
+    try:
+        # Call the Moderation API with the correct model
+        response = openai.Moderation.create(
+            model="text-moderation-latest",  # Use a valid moderation model
+            input=user_input
+        )
+        moderation_results = response["results"][0]
+
+        # Print the full moderation response to the console
+        print("Moderation Results: ", moderation_results)
+
+        # Check if the input is flagged as inappropriate
+        if moderation_results["flagged"]:
+            return {"error": "Input violates content policy. Please try again with appropriate content."}, True
+        return None, False
+
+    except Exception as e:
+        return {"error": f"An error occurred during moderation: {str(e)}"}, True
 
 @app.route('/generate-gift', methods=['POST'])
 def generate_gift():
@@ -22,6 +40,14 @@ def generate_gift():
     if not user_input:
         return jsonify({'error': 'No input provided'}), 400
 
+    print("before")
+    # Check user input with the Moderation API before proceeding
+    moderation_error, flagged = moderate_input(user_input)
+    if flagged:
+        return jsonify(moderation_error), 400
+
+    print("after")
+    
     try:
         # Custom prompt engineering
         prompt = f"Give me a list (Not bulleted or numbered) of 10 products that I could buy from an online retailer (like Amazon) for someone based on the following description about them. In the output, put each suggestion on a new line with no numbering or commas separating them, with no other text surrounding it. If you cannot derive any understanding from the description, like if the user enters nonsense, just instead return a list of 10 popular items that anyone would like, in the same format as described before\n\nDescription: {user_input}"
@@ -47,11 +73,8 @@ def generate_gift():
 
 @app.route('/')
 def index():
-    return "Welcome to the GiftMatchAI API!!!!"
-
-
-
-
+    print("Homepage accessed")
+    return "Welcome to the GiftMatchAI API! Moderation now set up!"
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

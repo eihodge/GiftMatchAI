@@ -1,42 +1,114 @@
-
 html, body {
   height: 100%;
   margin: 0;
-}
-
-body {
   display: flex;
-  justify-content: center; /* Center everything horizontally */
-  align-items: center;     /* Center everything vertically */
-  height: 100vh;           /* Ensure it takes full viewport height */
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-container {
-  width: 100%;             /* Full width of the container */
-  max-width: 800px;        /* Optional: Constrain the width */
-  padding: 0 15px;         /* Add 15px padding on the sides */
-  box-sizing: border-box;  /* Ensure padding doesn't exceed width */
-  text-align: center;      /* Ensure inner content is centered */
-}
-
-
-.app-header {
-  /* Header styling */
-}
-
-.app-title {
-  /* Title styling */
-}
-
-.app-description {
-  /* Description styling */
-}
-
-.app-textarea {
-  /* Textarea styling */
   width: 100%;
+  max-width: 800px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-button {
-  /* Button styling */
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  max-width: 40px;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.app-button:hover {
+  cursor: pointer;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -23px;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  filter: invert(100%);
+}
+
+.walmart-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 0px;
+  /* filter: invert(100%); */
+}
+.walmart-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+
+}
+.walmart-button:hover {
+  cursor: pointer;
+}
+
+.amazon-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 0px;
+  /* filter: invert(100%); */
+  filter: brightness(1.1);
+}
+.amazon-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+}
+.amazon-button:hover {
+  cursor: pointer;
+}
+
+.app-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  max-height: 138px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+  font-size: 19px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  border: none;
+  background-color: rgb(52, 52, 52);
+  color: rgb(255, 255, 255);
+  resize: none;
+  /* overflow-y: hidden; */
+  white-space: pre-wrap;
+  border-radius: 22px;
+  line-height: 1.5;
+}
+
+.recommendations-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.recommendation {
+  background-color: rgb(26, 26, 26);
+  border-radius: 5px;
+  font-size: 23px;
+  margin-bottom: 10px;
+  padding: 20px;
 }

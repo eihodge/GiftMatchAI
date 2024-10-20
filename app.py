@@ -47,7 +47,7 @@ CORS(app)  # Enable CORS globally
 
 @app.route('/')
 def index():
-    return "Welcome to the GiftMatchAI API!"
+    return "Welcome to the GiftMatchAI API!!!!"
 
 
 @app.route('/generate-gift', methods=['POST'])

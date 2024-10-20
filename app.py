@@ -24,7 +24,7 @@ def generate_gift():
 
     try:
         # Custom prompt engineering
-        prompt = f"Give me a list of 10 products that I could buy from an online retailer (like Amazon) for someone based on the following description about them. In the output, put each suggestion on a new line with no numbering or commas separating them, with no other text surrounding it. If you cannot derive any understanding from the description, like if the user enters nonsense, just instead return a list of 10 popular items that anyone would like, in the same format as described before\n\nDescription: {user_input}"
+        prompt = f"Give me a list (Not bulleted or numbered) of 10 products that I could buy from an online retailer (like Amazon) for someone based on the following description about them. In the output, put each suggestion on a new line with no numbering or commas separating them, with no other text surrounding it. If you cannot derive any understanding from the description, like if the user enters nonsense, just instead return a list of 10 popular items that anyone would like, in the same format as described before\n\nDescription: {user_input}"
 
         # Send the input to OpenAI's API
         response = openai.ChatCompletion.create(

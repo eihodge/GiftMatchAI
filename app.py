@@ -45,6 +45,9 @@ CORS(app)  # Enable CORS globally
 #         print(f"Error occurred: {e}")  # Print the error to the console
 #         return jsonify({'error': str(e)}), 500
 
+@app.route('/')
+def index():
+    return "Welcome to the GiftMatchAI API!"
 
 
 @app.route('/generate-gift', methods=['POST'])

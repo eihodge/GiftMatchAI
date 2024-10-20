@@ -3,27 +3,26 @@ import React, { useState } from 'react';
 function App() {
   const [input, setInput] = useState('');
 
-  // const response = await fetch('http://127.0.0.1:5000/generate-gift', {
-  
   const handleSubmit = async () => {
     if (!input.trim()) {
       alert('Please provide a description.');
       return;
     }
-  
+
     try {
       const response = await fetch('https://gift-match-ai.herokuapp.com/generate-gift', {
+      //const response = await fetch('http://127.0.0.1:5000/generate-gift', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ input }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to communicate with the backend');
       }
-  
+
       const data = await response.json();
       alert(data.message);  // Display the backend's response in an alert
     } catch (error) {
@@ -31,11 +30,6 @@ function App() {
       alert('Failed to communicate with the backend');
     }
   };
-  
-
-  
-  
-  
 
   return (
     <div className="app-container">
@@ -52,6 +46,7 @@ function App() {
         placeholder="Describe the person or their interests..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        autoFocus
       />
       <br />
       <button className="app-button" onClick={handleSubmit}>Send</button>

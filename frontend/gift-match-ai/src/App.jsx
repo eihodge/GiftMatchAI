@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [input, setInput] = useState('');
+
+  const handleSubmit = () => {
+    alert(`User input: ${input}`);
+    // Here you would send the input to the backend/OpenAI API
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="app-title">GiftFinderAI</h1>
+      </header>
+      <p className="app-description">Enter a description of the person or a list of their interests, and we'll suggest potential gift ideas!</p>
+      <textarea
+        className="app-textarea"
+        rows="10"
+        cols="50"
+        placeholder="Describe the person or their interests..."
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <br />
+      <button className="app-button" onClick={handleSubmit}>Send</button>
+    </div>
+  );
 }
 
-export default App
+export default App;

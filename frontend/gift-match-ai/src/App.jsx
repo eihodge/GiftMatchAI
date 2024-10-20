@@ -10,7 +10,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('https://gift-match-ai.herokuapp.com/generate-gift', {
+      const response = await fetch('https://gift-match-ai-640b3532a758.herokuapp.com/generate-gift', {
       //const response = await fetch('http://127.0.0.1:5000/generate-gift', {
         method: 'POST',
         headers: {

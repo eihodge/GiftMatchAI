@@ -17,6 +17,7 @@ MarkupSafe==3.0.2
 multidict==6.1.0
 openai==0.27.0
 propcache==0.2.0
+python-dotenv==1.0.1
 requests==2.32.3
 setuptools==75.2.0
 tqdm==4.66.5

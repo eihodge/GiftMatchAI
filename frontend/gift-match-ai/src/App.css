@@ -31,12 +31,7 @@ html, body {
   cursor: pointer;
 }
 
-.button-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -23px;
-}
+
 
 .send-icon {
   width: 20px;
@@ -62,12 +57,35 @@ html, body {
   cursor: pointer;
 }
 
+
+
+.ebay-icon {
+  width: 59px;
+  height: 59px;
+  margin-right: 0px;
+  
+  clip-path: inset(7px);
+
+}
+
+.ebay-button {
+  background-color: rgba(128, 128, 128, 0);
+  width: auto;
+  
+  border: none;
+
+}
+.ebay-button:hover {
+  cursor: pointer;
+}
+
 .amazon-icon {
-  width: 40px;
+  min-width: 46px;
   height: 40px;
   margin-right: 0px;
   /* filter: invert(100%); */
-  filter: brightness(1.1);
+  /* filter: brightness(1.4); */
+  
 }
 .amazon-button {
   background-color: rgba(128, 128, 128, 0);
@@ -100,10 +118,49 @@ html, body {
   line-height: 1.5;
 }
 
+
 .recommendations-container {
   text-align: left;
   margin-top: 20px;
 }
+
+
+
+
+
+
+
+
+.app-header {
+  width: 100%;
+  padding: 0px; /* Adjust padding as needed */
+  background-color: #f3f3f300; /* Matches your background color scheme */
+  display: flex;
+  margin-top: -20px;
+  margin-bottom: -30px;
+  justify-content: center; /* Centers content horizontally */
+  
+}
+
+.header-div {
+  display: flex;
+  
+  align-items: center; /* Vertically aligns the logo and title */
+}
+
+.sparkle-icon {
+  margin-right: 10px; /* Adds space between the logo and the header text */
+  width: 80px; /* Doubles the original width */
+  height: auto; /* Keeps the aspect ratio */
+}
+
+.app-title {
+  font-size: 48px; /* Doubles the font size */
+  /* font-weight: bold;  */
+  color: #e8e8e8; /* Text color */
+}
+
+
 
 .recommendation {
   background-color: rgb(26, 26, 26);
@@ -111,4 +168,73 @@ html, body {
   font-size: 23px;
   margin-bottom: 10px;
   padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Ensures text and buttons are on the same line with space in between */
+  align-items: center; /* Vertically aligns the buttons with the text */
+}
+
+.recommendation p {
+  margin: 0;
+  flex-grow: 1; /* Allows the text to take up remaining space */
+  padding-right: 10px; /* Adds some padding between the text and buttons */
+  word-wrap: break-word; /* Ensures text wraps before reaching buttons */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Keeps the buttons aligned to the right */
+  align-items: center;
+}
+
+.button-container-submit {
+  display: flex;
+  justify-content: flex-end; /* Keeps the buttons aligned to the right */
+  align-items: center;
+  /* background-color: red; */
+  margin-top: -22px;
+  margin-bottom: 0px;
+}
+
+.amazon-button, .walmart-button {
+  margin-left: 10px; /* Adds space between the buttons */
+}
+
+.amazon-icon, .walmart-icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+
+.loading {
+  width: 76px; /* Slightly adjust the width if needed */
+  aspect-ratio: 4; /* Keep the aspect ratio the same */
+  --_g: no-repeat radial-gradient(circle closest-side, #ffffff 90%, #0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100% / 5) 100%; /* Adjusted divisor for a better dot size */
+  animation: l7 1s infinite linear;
+}
+
+@keyframes l7 {
+  33% {
+    background-size: calc(100% / 5) 0%, calc(100% / 5) 100%, calc(100% / 5) 100%;
+  }
+  50% {
+    background-size: calc(100% / 5) 100%, calc(100% / 5) 0%, calc(100% / 5) 100%;
+  }
+  66% {
+    background-size: calc(100% / 5) 100%, calc(100% / 5) 100%, calc(100% / 5) 0%;
+  }
+}
+
+
+
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
 }

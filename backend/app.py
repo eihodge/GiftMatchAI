@@ -8,6 +8,8 @@ CORS(app)  # Enable CORS globally
 
 # Get the OpenAI API key from Heroku environment variables
 openai.api_key = os.getenv('OPENAI_API_KEY')
+print("OPENAI_API_KEY:", openai.api_key)
+
 # openai.api_key = ""
 
 @app.route('/generate-gift', methods=['POST'])
